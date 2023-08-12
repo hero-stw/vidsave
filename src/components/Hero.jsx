@@ -23,7 +23,7 @@ const Hero = () => {
                 >
                   <img
                     className='w-auto rounded h-14 sm:h-16'
-                    src='./assets/google-play.png'
+                    src='/google-play.png'
                     alt=''
                   />
                 </a>

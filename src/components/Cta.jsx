@@ -1,6 +1,19 @@
+import { useEffect, useRef, useState } from "react";
+import CountUp from "react-countup";
 const Cta = () => {
+  const [ctaVisible, updateCtaIsVisible] = useState();
+  const ctaRef = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      updateCtaIsVisible(entry.isIntersecting);
+    });
+    observer.observe(ctaRef.current);
+  }, []);
+
+  console.log(ctaVisible);
   return (
-    <section className='py-10 bg-white sm:py-16 lg:py-24'>
+    <section ref={ctaRef} className='py-10 bg-white sm:py-16 lg:py-24'>
       <div className='px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl'>
         <div className='max-w-2xl mx-auto text-center'>
           <div className='flex items-center justify-center'>
@@ -27,8 +40,7 @@ const Cta = () => {
             </div>
           </div>
           <h2 className='mt-8 text-3xl font-bold leading-tight text-black lg:mt-12 sm:text-4xl lg:text-5xl'>
-            Join <span className='border-b-8 border-yellow-300'>5,482</span>{" "}
-            other developers
+            Join {ctaVisible ? <CountUp end={5678} /> : null} other developers
           </h2>
           <p className='max-w-xl mx-auto mt-6 text-xl text-gray-600 md:mt-10'>
             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet

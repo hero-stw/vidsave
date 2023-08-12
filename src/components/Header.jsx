@@ -1,7 +1,7 @@
 const menuData = [
   {
     title: "Features",
-    link: "#feature",
+    link: "#features",
   },
   {
     title: "FAQ",
@@ -16,7 +16,7 @@ const Header = () => {
         <div className='flex items-center justify-between h-16 lg:h-20'>
           <div className='flex-shrink-0'>
             <a href='#' title className='flex'>
-              <img className='w-auto h-8' src='./assets/logo.png' alt='' />
+              <img className='w-auto h-8' src='/logo.png' alt='' />
             </a>
           </div>
           {menuData && (
